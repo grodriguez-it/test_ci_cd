@@ -56,16 +56,16 @@ jobs:
         id: deployment-pages
         uses: actions/deploy-pages@v4
 
-  notify:
-    runs-on: ubuntu-latest
-    needs: deploy
-    if: always()
+  # notify:
+  #   runs-on: ubuntu-latest
+  #   needs: deploy
+  #   if: always()
 
-    steps:
-      - name: notify to slack
-        uses: 8398a7/action-slack@v3
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
-        with:
-          status: ${{ job.status }}
-          fields: repo,commit,author,job,took
+  #   steps:
+  #     - name: notify to slack
+  #       uses: 8398a7/action-slack@v3
+  #       env:
+  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK }}
+  #       with:
+  #         status: ${{ job.status }}
+  #         fields: repo,commit,author,job,took
