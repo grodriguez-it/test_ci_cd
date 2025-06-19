@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Print variable
-        run: echo "${{ secrets.TOKEN_SECRECT }}"
+        run: echo "${{ secrets.TOKEN_SECRET }}"
 
       - name: Checkout
         uses: actions/checkout@v4
