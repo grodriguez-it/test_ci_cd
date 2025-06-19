@@ -5,12 +5,13 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    #    runs-on: ${{ matrix.os }}
 
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: [18, 20]
+    # strategy:
+    #   matrix:
+    #     os: [ubuntu-latest, windows-latest]
+    #     node: [18, 20]
 
     steps:
       - name: Print variable
@@ -22,7 +23,8 @@ jobs:
       - name: setup
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
+#          node-version: ${{ matrix.node }}
 
       - name: Instalar dependencias
         run: npm install
@@ -34,7 +36,7 @@ jobs:
         run: npm run build
   
       - name: Upload artifact
-        if: ${{ matrix.os == 'ubuntu-latest' && matrix.node == 18 }}
+#        if: ${{ matrix.os == 'ubuntu-latest' && matrix.node == 18 }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: public/
