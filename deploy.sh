@@ -1,24 +1,16 @@
-$VM_SSH << REMOTE_SCRIPT
-mkdir $PROJECT_DIR
-cd $PROJECT_DIR || exit
+VM_SSH="${{ secrets.VM_SSH }}"
+PROJECT_DIR="${{ vars.PROJECT_DIR }}"
 
-# Verifica si es un repo Git y si está conectado a un remoto
-if [ -d .git ]; then
-    echo "✔ Directorio ya es un repositorio Git"
-    if git remote -v | grep -q origin; then
-        echo "✔ Tiene remoto 'origin' configurado"
-    else
-        echo "⚠ Falta remoto: agregando..."
-        git remote add origin https://https://github.com/grodriguez-it/test_ci_cd.git
-    fi
-else
-    echo "✖ Inicializando nuevo repo Git..."
+# Ejecución con bash -c para evitar problemas de interpretación
+bash -c "$VM_SSH << 'REMOTE_SCRIPT'
+  mkdir -p $PROJECT_DIR
+  cd $PROJECT_DIR || exit
+  
+  if [ -d .git ]; then
+    git pull origin main
+  else
     git init
-    git remote add origin https://https://github.com/grodriguez-it/test_ci_cd.git
-    git fetch
-    git checkout -b main
-fi
-
-# Continúa con tu despliegue...
-git pull origin main
-REMOTE_SCRIPT
+    git remote add origin https://github.com/grodriguez-it/test_ci_cd.git
+    git fetch && git checkout -b main
+  fi
+REMOTE_SCRIPT"
