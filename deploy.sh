@@ -36,7 +36,7 @@ else
 fi
 
 # 4. Copiar archivos a Nginx
-sudo cp -r src/public/index.html /var/www/html/
+sudo cp -r public/index_vm.html /var/www/html/index.html
 sudo chown -R www-data:www-data /var/www/html
 sudo chown www-data:www-data /var/www/html/index.html  # Asegura permisos para Nginx/Apache
 
