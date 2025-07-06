@@ -10,5 +10,17 @@ if [ -d .git ]; then
 else
   git clone --branch main https://github.com/grodriguez-it/test_ci_cd.git .
 fi
+if ! command -v nginx &> /dev/null; then
+    echo "🛠️ Instalando Nginx..."
+    sudo apt update && sudo apt install -y nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+else
+    echo "✅ Nginx ya está instalado"
+fi
+sudo cp /home/grodriguez/website/src/index.html /var/www/html/
+sudo chown www-data:www-data /var/www/html/index.html  # Asegura permisos para Nginx/Apache
+sudo nginx -t
+sudo systemctl restart nginx
 
 REMOTE_SCRIPT"
