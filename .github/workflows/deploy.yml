@@ -15,8 +15,8 @@ jobs:
     #     node: [18, 20]
 #
     steps:
-      - name: Print variable
-        run: echo "${{ secrets.TOKEN_SECRET }}"
+      # - name: Print variable
+      #   run: echo "${{ secrets.TOKEN_SECRET }}"
 
       - name: Checkout
         uses: actions/checkout@v4

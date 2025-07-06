@@ -29,4 +29,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_TOKEN }}
           app_location: "public"  # Carpeta con los archivos estáticos
-          deployment_action: "upload"
+          action: "upload"
