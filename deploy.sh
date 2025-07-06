@@ -1,15 +1,15 @@
 # Ejecución con bash -c para evitar problemas de interpretación
 bash -c "$VM_SSH << 'REMOTE_SCRIPT'
-  mkdir -p $PROJECT_DIR
-  cd $PROJECT_DIR || exit
+rm -rf $PROJECT_DIR
+mkdir $PROJECT_DIR
+cd $PROJECT_DIR || exit
   
-# Forzar clonación (elimina el directorio si existe)
-if [ -d .git ]; then
-  git fetch --all
-  git reset --hard origin/main || git reset --hard origin/master
+if git branch -r | grep -q 'origin/main'; then
+    git checkout main
 else
-  git clone --branch main https://github.com/grodriguez-it/test_ci_cd.git .
+    git checkout master
 fi
+
 if ! command -v nginx &> /dev/null; then
     echo "🛠️ Instalando Nginx..."
     sudo apt update && sudo apt install -y nginx
