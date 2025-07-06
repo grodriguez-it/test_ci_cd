@@ -1,6 +1,3 @@
-VM_SSH="${{ secrets.VM_SSH }}"
-PROJECT_DIR="${{ vars.PROJECT_DIR }}"
-
 # Ejecución con bash -c para evitar problemas de interpretación
 bash -c "$VM_SSH << 'REMOTE_SCRIPT'
   mkdir -p $PROJECT_DIR

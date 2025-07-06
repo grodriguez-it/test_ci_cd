@@ -6,6 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      PROJECT_DIR: ${{ vars.PROJECT_DIR }}  # Variable de repositorio
+      VM_SSH: ${{ secrets.VM_SSH }}        # Ruta Secreta
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
