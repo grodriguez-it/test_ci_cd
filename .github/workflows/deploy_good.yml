@@ -1,0 +1,52 @@
+name: Deploy with Cache
+
+on: 
+#  - push
+  - workflow_dispatch
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Set cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Run test
+        run: npm run test
+      
+      - name: Build page
+        run: npm run build
+
+      - name: Hola
+        run: echo "Hola prueba" >> $GITHUB_STEP_SUMMARY
+  
+  notification:
+    needs: build
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: hola
+        run: echo "Hola"
+  

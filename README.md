@@ -1,0 +1,1 @@
+[![Action to Azure VM](https://github.com/grodriguez-it/test_ci_cd/actions/workflows/deploy_vm.yml/badge.svg)](https://github.com/grodriguez-it/test_ci_cd/actions/workflows/deploy_vm.yml)

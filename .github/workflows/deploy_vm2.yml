@@ -1,9 +1,10 @@
 name: Action to Azure VM
 on:
-  push:
-    branches:
-      - main
-      - stage
+  - workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
+  #     - stage
 
 jobs:
   build:
