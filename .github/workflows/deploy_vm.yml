@@ -15,8 +15,8 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
-      - name: Create file
-        run: ssh -o StrictHostKeyChecking=no grodriguez@4.246.203.10 touch prueba
+      #- name: Create file
+      #  run: ssh -o StrictHostKeyChecking=no grodriguez@4.246.203.10 touch prueba
 
-      #- name: Deploy to server
-      #  run: bash deploy.sh
+      - name: Deploy to server
+        run: bash deploy.sh
