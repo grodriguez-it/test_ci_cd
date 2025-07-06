@@ -1,5 +1,5 @@
 # Ejecución con bash -c para evitar problemas de interpretación
-bash -c "$VM_SSH << 'REMOTE_SCRIPT'
+$VM_SSH << REMOTE_SCRIPT
 
 # Verificar Nginx
 if ! command -v nginx &> /dev/null; then
@@ -44,4 +44,4 @@ sudo chown www-data:www-data /var/www/html/index.html  # Asegura permisos para N
 sudo nginx -t
 sudo systemctl restart nginx
 
-REMOTE_SCRIPT"
+REMOTE_SCRIPT
