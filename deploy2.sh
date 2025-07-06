@@ -10,6 +10,7 @@ $VM_SSH << REMOTE_SCRIPT
 
 # 1. Entrar al respectivo directorio
 rm -r $DEPLOY_PATH 
+mkdir -p $DEPLOY_PATH
 cd $PROJECT_DIR
 
 # 2. Clonar repositorio
