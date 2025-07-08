@@ -11,7 +11,7 @@ $VM_SSH << REMOTE_SCRIPT
 # 1. Entrar al respectivo directorio
 rm -rf $DEPLOY_PATH
 mkdir -p $DEPLOY_PATH
-cd $PROJECT_DIR
+cd $DEPLOY_PATH
 
 # 2. Clonar repositorio
 git clone https://github.com/grodriguez-it/test_ci_cd.git .
