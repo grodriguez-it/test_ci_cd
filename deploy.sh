@@ -1,5 +1,5 @@
 # Ejecución con bash -c para evitar problemas de interpretación
-$VM_SSH << REMOTE_SCRIPT
+$VM_SSH << 'REMOTE_SCRIPT'
 
 # Verificar Nginx
 if ! command -v nginx &> /dev/null; then
