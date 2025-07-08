@@ -1,5 +1,6 @@
 # Ejecución con bash -c para evitar problemas de interpretación
-$VM_SSH << 'REMOTE_SCRIPT'
+# $VM_SSH
+ssh -o StrictHostKeyChecking=no grodriguez@52.168.65.218 << 'REMOTE_SCRIPT'
 
 # Verificar Nginx
 if ! command -v nginx &> /dev/null; then
