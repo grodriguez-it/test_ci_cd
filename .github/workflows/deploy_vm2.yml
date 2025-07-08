@@ -8,6 +8,10 @@ on: # workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      VM_SSH: ${{ secrets.VM_SSH }} # Ruta Secreta
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
