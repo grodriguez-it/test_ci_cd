@@ -9,7 +9,8 @@ fi
 $VM_SSH << REMOTE_SCRIPT
 
 # 1. Entrar al respectivo directorio
-rm -r $DEPLOY_PATH 
+rm -r $DEPLOY_PATH
+mkdir /home/grodriguez/github
 mkdir -p $DEPLOY_PATH
 cd $PROJECT_DIR
 
