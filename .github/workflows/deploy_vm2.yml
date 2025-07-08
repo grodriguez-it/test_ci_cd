@@ -1,4 +1,4 @@
-name: Action to Azure VM
+name: Action to Azure VM MultiBranch
 on:
   - workflow_dispatch
   # push:
