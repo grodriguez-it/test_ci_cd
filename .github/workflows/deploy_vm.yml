@@ -1,7 +1,7 @@
 name: Action to Azure VM
 on: 
-  #- workflow_dispatch
-   - push
+   - workflow_dispatch
+   # - push
 jobs:
   build:
     runs-on: ubuntu-latest
