@@ -8,7 +8,7 @@ jobs:
 
     env:
       PROJECT_DIR: ${{ vars.PROJECT_DIR }}  # Variable de repositorio
-      VM_SSH: ${{ secrets.VM_SSH }}        # Ruta Secreta
+      VM_SSH: ${{ secrets.VM_SSH }}         # Ruta Secreta
 
     steps:
       - name: Checkout
