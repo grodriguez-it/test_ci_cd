@@ -12,7 +12,7 @@ $VM_SSH << REMOTE_SCRIPT
 rm -rf $DEPLOY_PATH
 mkdir -p $DEPLOY_PATH
 cd $DEPLOY_PATH
-
+ 
 # 2. Clonar repositorio
 git clone https://github.com/grodriguez-it/test_ci_cd.git .
 git pull --rebase origin $BRANCH
