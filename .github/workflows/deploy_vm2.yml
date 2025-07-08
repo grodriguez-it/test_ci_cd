@@ -2,7 +2,7 @@ name: Action to Azure VM MultiBranch
 on: # workflow_dispatch
   push:
     branches:
-      - main
+      - master
       - stage
 
 jobs:
@@ -19,9 +19,9 @@ jobs:
 
       - name: Deploy to stage server
         if: ${{ github.ref == 'refs/heads/stage' }}
-        run: bash deploy.sh stage
+        run: bash deploy2.sh stage
 
       - name: Deploy to prod server
         if: ${{ github.ref == 'refs/heads/main' }}
-        run: bash deploy.sh main
+        run: bash deploy2.sh main
         
