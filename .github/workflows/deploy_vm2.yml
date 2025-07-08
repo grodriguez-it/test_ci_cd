@@ -2,7 +2,7 @@ name: Action to Azure VM MultiBranch
 on: # workflow_dispatch
   push:
     branches:
-      - master
+      - main
       - stage
 
 jobs:
